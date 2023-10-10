@@ -13,7 +13,7 @@ public class FullNameApplication {
 
         System.out.print("Middle Name: ");
         String middleName = scanner.nextLine();
-        if (middleName.length() > 0) middleName += middleName.charAt(0);
+        if (!middleName.isEmpty()) middleName = String.valueOf(middleName.charAt(0));
         System.out.print("Last Name: ");
         String lastName = scanner.nextLine();
 
@@ -22,16 +22,16 @@ public class FullNameApplication {
 
         String fullName;
 
-        if (middleName.length() > 0 && suffix.length() > 0) {
+        if (!middleName.isEmpty() && !suffix.isEmpty()) {
             fullName = firstName + " " + middleName.toUpperCase() + "." + " " + lastName + ", " + suffix;
-        } else if(middleName.length() > 0) {
+        } else if(!middleName.isEmpty()) {
             fullName = firstName + " " + middleName.toUpperCase() + "." + " " + lastName;
-        } else if (suffix.length() > 0) {
+        } else if (!suffix.isEmpty()) {
             fullName = firstName + " " + lastName + ", " + suffix;
         } else {
             fullName = firstName + " " + lastName;
         }
 
-        System.out.println(fullName);
+        System.out.println("Full name: " + fullName);
     }
 }
